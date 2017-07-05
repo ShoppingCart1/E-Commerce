@@ -1,0 +1,63 @@
+<script src="RegisterCtrl.js"></script>
+                
+      <div class="container">
+         <div class="row">
+             <div class="col-sm-3"></div>
+             <div class="col-sm-6">
+     
+             <div class="jumbotron" style="background-color:orange"><h2>Registration  Page</h2></div>
+      <form role="form" name="regform" novalidate="">
+                <div class="jumbotron " >
+                    
+                    <label for="email">Email Address</label>
+                    <input type="email" id="mainText" name="email" ng-model="email" class="form-control" placeholder="Email Address" required=""/>
+                    <span style="color:red" ng-show="regform.email.$dirty && regform.email.$invalid">
+                         <span ng-show="regform.email.$error.required">Email is required.</span>
+                         <span ng-show="regform.email.$error.email">Invalid email address.</span>
+                    </span>
+                   
+                 </div>
+                 <div class="jumbotron " >
+                    
+                    <label for="username">Username</label>
+                    <input type="username" name="username" ng-model="username" class="form-control" placeholder="User name" required=""/>
+                    <span style="color:red" ng-show="regform.username.$dirty && regform.username.$invalid">
+                       <span ng-show="regform.username.$error.required">UserName is required.</span>
+                    </span>
+                   
+                </div>
+                <div class="jumbotron " >
+                    
+                    <label for="password">Password</label>
+                    <input type="password" name="password" ng-model="password" class="form-control" placeholder="Password" required="" ng-minlength='8'/>
+                    <span style="color:red" ng-show="regform.password.$dirty && regform.password.$invalid">
+                       <span ng-show="regform.password.$error.required">Password is required.</span>
+                       <span ng-show="regform.password.$error.minlength">Password must be atleast 8 characters</span>
+                    </span>
+                   
+                </div>
+                <div class="jumbotron " >
+                    
+                    <label for="mobile">Mobile Number</label>
+                    <input type="mobile" name="mobile" ng-model="mobile" class="form-control" placeholder="Mobile Number" required="" ng-minlength='10' ng-maxlength='10'/>
+                    <span style="color:red" ng-show="regform.mobile.$dirty && regform.mobile.$invalid">
+                       <span ng-show="regform.mobile.$error.required">Mobile Number is required.</span>
+                       <span ng-show="regform.mobile.$error.minlength">Mobile number should have 10 characters only</span>
+                       <span ng-show="regform.mobile.$error.maxlength">Mobile number should have 10 characters only</span>                    
+                    </span>
+                   
+                </div>
+                <div>
+                    <span ng-show="ermsg" style="color:red;">{{errormessage}}</span>
+                    <button type="submit" class="btn btn-lg btn-primary btn-block" ng-disabled="regform.$invalid" ng-click="signUp($er)">Sign Up</button>
+                </div>
+                
+        </form>
+      </div>
+    
+     <div class="col-sm-3"></div>
+            
+  </div>
+   </div>  
+    
+    

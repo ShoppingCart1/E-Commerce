@@ -1,0 +1,101 @@
+@CHARSET "ISO-8859-1";
+@import url('https://fonts.googleapis.com/css?family=Coming+Soon|Fredericka+the+Great|Kranky|Paytone+One|Vast+Shadow');
+body{
+    
+}
+.container-fluid li h2{
+    margin: 7px 20px 0px 60px;
+    font-family: 'Vast Shadow', cursive;
+}
+.container-fluid li img{
+    margin-right: 10px;
+    
+}
+.cart{
+margin-top: 10px;
+}@CHARSET "ISO-8859-1";
+
+.brand {
+	font-family: 'Josefin Slab', serif;
+ font-size: 37px;
+ font-weight: bold;
+ color: #444;
+ text-decoration: none;
+}
+
+/*****Styling carousel of home page******/
+.carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 100%;
+      margin: auto;
+  }
+
+/************** Styling home page ***********/
+@import url('https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister');
+@import url('https://fonts.googleapis.com/css?family=Averia+Libre|Love+Ya+Like+A+Sister');
+@import url('https://fonts.googleapis.com/css?family=Averia+Libre|Love+Ya+Like+A+Sister|Milonga');
+
+ .itemView a:link, a:visited {
+    background-color: #568be2;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 8px;
+}
+
+
+ .itemView a:hover, a:active {
+    background-color: #1970ff;
+    color: white;
+}
+a{
+	text-decoration: none;
+}
+.itemView
+{
+	
+-webkit-transition: all 2s ease;
+ -moz-transition: all 2s ease;
+ -ms-transition: all 2s ease;
+ transition: all 2s ease;
+	float:left;
+	padding :15px;
+	color: #89ace5;
+	margin :10px 10px 10px 10px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.itemView img:hover
+{
+	transform: scale(1.1); 
+}
+.itemView :hover{
+	font-weight:bold;
+	color: #4786ed;
+	
+}
+#title{
+
+		font-family: 'Love Ya Like A Sister', cursive;
+		font-size	:30px;
+}
+#logout
+{
+	font-family: 'Love Ya Like A Sister', cursive;
+	font-family: 'Averia Libre', cursive;
+	font-size:20px;
+	
+}
+#name{
+		font-family: 'Love Ya Like A Sister', cursive;
+		font-family: 'Averia Libre', cursive;
+		font-family: 'Milonga', cursive;
+		font-size: 20px;
+		padding: 0px 20px 0px 0px;
+
+}
+
+.itemView {
+		
+}
