@@ -3,7 +3,7 @@
    app.controller("RegisterCtrl", function($scope, $http) {
 		  $scope.Register= function() {
 			  $http({
-		            url : '/registerUser',
+		            url : 'registerUser',
 		            method : "POST",
 		            data : {
 		                'email' : $scope.email,

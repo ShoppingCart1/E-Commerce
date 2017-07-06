@@ -17,7 +17,7 @@ app.config(function($routeProvider) {
 	})
 	// route for the home page
 	.when('/home', {
-		templateUrl : 'module/home/home.html',
+		templateUrl : 'home.html',
 		controller : 'HomeCtrl'
 	})
 });
