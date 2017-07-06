@@ -11,21 +11,23 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!-- AngularJS -->
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
 <script src="script.js"></script>
-<script src="/module/login/LoginCtrl.js"></script>
-<script src="/module/register/RegisterCtrl.js"></script>
+<script src="module/login/LoginCtrl.js"></script>
+<script src="module/register/RegisterCtrl.js"></script>
+<script src="module/home/HomeCtrl.js"></script>
 <link rel="stylesheet" href="style.css">
 <link rel="icon" href="Image/logo-design.png" sizes="16x16">
 
 
 </head>
-<body ng-app="Customer">
+<body ng-app="mivimMain">
 <!-- HEADER AND NAVBAR -->
   <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <ul class="nav navbar-nav brand">
-        <li><a href="#!home"><img src="Image/logo-design.png" alt="logo" height="35" width="30">ShoppingCart</a></li>
+        <li><a href="#!/home"><img src="Image/logo-design.png" alt="logo" height="35" width="30">ShoppingCart</a></li>
         
     </ul>
     
@@ -37,8 +39,8 @@
         </button>
       </li>
         
-      <li><a href="#!Register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="#!login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li><a href="#!/Register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="#!/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>
   </div>
 </nav>

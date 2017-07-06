@@ -1,5 +1,5 @@
-var app= angular.module('Customer',['ngRoute']);
+ var app= angular.module('mivimNonSecured',[]);
  
    app.controller("LoginCtrl", function($scope) {
-   	 
+		  
    });

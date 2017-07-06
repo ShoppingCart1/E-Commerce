@@ -17,10 +17,7 @@ import com.mivim.service.UserService;
 @Controller
 public class UserController {
 	
-	 @RequestMapping(value="/", method = RequestMethod.GET)
-	    public String home(Locale locale, Model model) {
-	        return "index";
-	    }
+	 
 	@Autowired
 	UserService userService;
 	

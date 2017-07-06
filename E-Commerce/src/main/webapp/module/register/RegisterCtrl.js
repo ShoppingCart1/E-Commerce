@@ -1,5 +1,5 @@
-   var app= angular.module('Customer',['ngRoute']);
+ var app= angular.module('mivimRegister',[]);
  
    app.controller("RegisterCtrl", function($scope) {
 		  
-   });;
+   });

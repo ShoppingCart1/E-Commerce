@@ -7,7 +7,7 @@
     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
     
     <context:component-scan base-package="com.mivim" />
-    <mvc:view-controller path="/" view-name="index"/>
+<!--     <mvc:view-controller path="/" view-name="index"/> -->
     <mvc:annotation-driven />
      
     <bean
