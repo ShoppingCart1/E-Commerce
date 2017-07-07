@@ -61,17 +61,16 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-  <br>
-  <h1>Hello</h1>
 </div><br><br>
 <!-- carousel ends here -->
-
-<div class="itemView" ng-repeat="x in myData">
-  <img src="../../Image/{{x.Id}}.jpg" alt="" style="width:304px;height:250px;">
-  <p style="width:304px;height:80px;padding-top:20px;"><a>{{x.Name}}</a></p>
+<div data-ng-init="getData()">
+<div class="itemView" ng-repeat="item in items">
+  <img src="Image/{{item.id}}.jpg" alt="" style="width:304px;height:250px;">
+  <p style="width:304px;height:80px;padding-top:20px;"><a>{{item.itemName}}</a></p>
   <table style="width:100%">
-   <tr><td><p><a href="" class="price" >&#x20B9;{{x.Price}}</a></p></td>
-   <td align="right"><p><a href="">View Item</a></p></td>
+   <tr><td><p><a href="" class="price" >&#x20B9;{{item.unitPrice}}</a></p></td>
+   <td align="right"><p><a href="#!itemView">View Item</a></p></td>
    </tr>
    </table>
+   </div>
 </div>
