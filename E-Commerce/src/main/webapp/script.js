@@ -3,7 +3,7 @@ var app = angular.module('mivimMain', [ 'ngRoute', 'mivimNonSecured','mivimRegis
 // configure our routes
 app.config(function($routeProvider) {
 	$routeProvider
-
+	//route for default page
 	.when('/', {
 		templateUrl : 'home.html',
 		controller : 'HomeCtrl'
@@ -24,5 +24,6 @@ app.config(function($routeProvider) {
 		templateUrl : 'home.html',
 		controller : 'HomeCtrl'
 	})
+	
 });
 

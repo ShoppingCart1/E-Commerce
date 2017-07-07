@@ -1,3 +1,17 @@
+<html>
+<head>
+<style>
+
+#items{
+		padding:0px 100px 0px 100px;
+}
+
+</style>
+
+</head>
+
+<body>
+
 <div class="container">
   <br>
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -63,14 +77,19 @@
   </div>
 </div><br><br>
 <!-- carousel ends here -->
-<div data-ng-init="getData()">
+<div data-ng-init="getData()" id="items">
 <div class="itemView" ng-repeat="item in items">
-  <img src="Image/{{item.id}}.jpg" alt="" style="width:304px;height:250px;">
+          <!-- <form role="form" name="regform" ng-submit="getItemDataById()">
+		<input type="hidden" ng-model="id" name="id" ng-value="{{item.id}}"/> -->
+  <img src="Image/{{item.id}}.jpg" alt="{{item.id}}.jpg" style="width:304px;height:250px;">
   <p style="width:304px;height:80px;padding-top:20px;"><a>{{item.itemName}}</a></p>
   <table style="width:100%">
    <tr><td><p><a href="" class="price" >&#x20B9;{{item.unitPrice}}</a></p></td>
-   <td align="right"><p><a href="#!itemView">View Item</a></p></td>
+   <td align="right"><p><button ng-click="getItemDataById(item.id)"><a href="#!/itemview">View Item</a></button></p></td>
    </tr>
    </table>
+   </form>
    </div>
 </div>
+</body>
+</html>
