@@ -6,7 +6,7 @@
     http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
     
-    <context:component-scan base-package="com.mivim" />
+    <context:component-scan base-package="com.mivim.controller" />
 <!--     <mvc:view-controller path="/" view-name="index"/> -->
     <mvc:annotation-driven />
      
@@ -16,8 +16,8 @@
             <value>/</value>
         </property>
         <property name="suffix">
-            <value>.html</value>
+            <value>.jsp</value>
         </property>
     </bean>
- 
+<!--   <mvc:resources location="/WEB-INF/user/" mapping="/user/**"/> -->
 </beans>

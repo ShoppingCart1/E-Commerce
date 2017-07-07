@@ -4,6 +4,10 @@ var app = angular.module('mivimMain', [ 'ngRoute', 'mivimNonSecured','mivimRegis
 app.config(function($routeProvider) {
 	$routeProvider
 
+	.when('/', {
+		templateUrl : 'module/home/home.html',
+		controller : 'HomeCtrl'
+	})
 	// route for the login page
 	.when('/login', {
 		templateUrl : 'module/login/login.html',
@@ -17,7 +21,7 @@ app.config(function($routeProvider) {
 	})
 	// route for the home page
 	.when('/home', {
-		templateUrl : 'home.html',
+		templateUrl : 'module/home/home.html',
 		controller : 'HomeCtrl'
 	})
 });

@@ -4,8 +4,8 @@ package com.mivim.dto;
 public class UserDto {
 	
 
-	String email=null;
-	String password=null;
+	String email;
+	String password;
 	
 	public String getEmail() {
 		return email;

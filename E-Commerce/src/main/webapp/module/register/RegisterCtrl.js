@@ -2,16 +2,20 @@
  
    app.controller("RegisterCtrl", function($scope, $http) {
 		  $scope.Register= function() {
-			  $http({
-		            url : 'registerUser',
-		            method : "POST",
-		            data : {
-		                'email' : $scope.email,
-		                'password' : $scope.password,
-		                'username': $scope.username,
-		                'mobile': $scope.mobile
-		            }
-		        }).then(function(response) {
+			  
+			  var dto = { email: $scope.email, password:$scope.password,username:$scope.username,mobileNumber:$scope.mobile }; 
+			  
+			  var req = {
+	    			   method: 'POST',
+	    			   url: 'E-Commerce/registerUser',
+	    			   data:{
+	    				   
+	    			   },headers: {
+	    			     'Content-Type': 'application/json'
+	    			   }, 
+	    			   params: dto
+	    			  }
+			  $http(req).then(function(response) {
 		            console.log(response.data);
 		            $scope.message = response.data;
 		        }, function(response) {

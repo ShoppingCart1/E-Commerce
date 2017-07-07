@@ -1,4 +1,5 @@
 
+                
       <div class="container">
          <div class="row">
              <div class="col-sm-3"></div>
@@ -14,17 +15,15 @@
                          <span ng-show="regform.email.$error.required">Email is required.</span>
                          <span ng-show="regform.email.$error.email">Invalid email address.</span>
                     </span>
-                   
-                 </div>
-                 <div class="jumbotron " >
+                    <br>
                     
                     <label for="username">Username</label>
                     <input type="username" name="username" ng-model="username" class="form-control" placeholder="User name" required=""/>
                     <span style="color:red" ng-show="regform.username.$dirty && regform.username.$invalid">
                        <span ng-show="regform.username.$error.required">UserName is required.</span>
                     </span>
-                   
-                </div>
+                 </div>
+                
                 <div class="jumbotron " >
                     
                     <label for="password">Password</label>
@@ -33,19 +32,16 @@
                        <span ng-show="regform.password.$error.required">Password is required.</span>
                        <span ng-show="regform.password.$error.minlength">Password must be atleast 8 characters</span>
                     </span>
-                   
-                </div>
-                <div class="jumbotron " >
-                    
-                    <label for="mobile">Mobile Number</label>
+                    <br>
+                   <label for="mobile">Mobile Number</label>
                     <input type="mobile" name="mobile" ng-model="mobile" class="form-control" placeholder="Mobile Number" required="" ng-minlength='10' ng-maxlength='10'/>
                     <span style="color:red" ng-show="regform.mobile.$dirty && regform.mobile.$invalid">
                        <span ng-show="regform.mobile.$error.required">Mobile Number is required.</span>
                        <span ng-show="regform.mobile.$error.minlength">Mobile number should have 10 characters only</span>
                        <span ng-show="regform.mobile.$error.maxlength">Mobile number should have 10 characters only</span>                    
                     </span>
-                   
                 </div>
+               
                 <div>
                     <span ng-show="ermsg" style="color:red;">{{errormessage}}</span>
                     <button type="submit" class="btn btn-lg btn-primary btn-block" ng-disabled="regform.$invalid">Sign Up</button>

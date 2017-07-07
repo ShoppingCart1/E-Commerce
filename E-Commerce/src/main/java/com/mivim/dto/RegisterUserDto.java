@@ -6,7 +6,7 @@ public class RegisterUserDto {
 	private String username;
 	private String email;
 	private String password;
-	private String mobile;
+	private String mobileNumber;
 	public String getUsername() {
 		return username;
 	}
@@ -25,12 +25,13 @@ public class RegisterUserDto {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getMobile() {
-		return mobile;
+	public String getMobileNumber() {
+		return mobileNumber;
 	}
-	public void setMobile(String mobile) {
-		this.mobile = mobile;
+	public void setMobileNumber(String mobileNumber) {
+		this.mobileNumber = mobileNumber;
 	}
+	
 	
 
 }

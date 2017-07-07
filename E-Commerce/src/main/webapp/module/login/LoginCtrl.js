@@ -2,20 +2,24 @@
  
    app.controller("LoginCtrl", function($scope,$http) {
 	   $scope.sendPost = function() {
-	        $http({
-	            url : 'authentication',
-	            method : "POST",
-	            data : {
-	                'email' : $scope.email,
-	                'password' : $scope.password
-	            }
-	        }).then(function(response) {
+		   var dto = { email: $scope.email, password:$scope.password };
+		   var req = {
+    			   method: 'POST',
+    			   url: 'E-Commerce/authentication',
+    			   data:{
+    				   
+    			   },headers: {
+    			     'Content-Type': 'application/json'
+    			   }, 
+    			   params: dto
+    			  }
+	        $http(req).then(function(response) {
 	            console.log(response.data);
-	            $scope.message = response.data;
+	           
 	        }, function(response) {
-	            //fail case
+	            
 	            console.log(response);
-	            $scope.message = response;
+	          
 	        });
 	 
 	    };

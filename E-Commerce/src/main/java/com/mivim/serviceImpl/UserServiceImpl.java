@@ -1,16 +1,19 @@
 package com.mivim.serviceImpl;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.annotation.Resource;
 
-import com.mivim.dao.UserDao;
+import org.springframework.stereotype.Service;
+
 import com.mivim.dto.RegisterUserDto;
 import com.mivim.dto.UserDto;
 import com.mivim.service.UserService;
 
+@Service
+@Resource(name="userServiceImpl")
 public class UserServiceImpl implements UserService {
 
-	@Autowired
-	UserDao userDao;
+//	@Autowired
+//	UserDao userDao;
 	
 	/*
 	 * @author SReddy
@@ -20,13 +23,13 @@ public class UserServiceImpl implements UserService {
 	 */
 	public boolean authentication(UserDto dto) {
 	
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean register(RegisterUserDto dto) {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 }
