@@ -13,47 +13,6 @@
 @import url('https://fonts.googleapis.com/css?family=Philosopher');
 
 
- a:link, a:visited {
-    background-color: #6098f2;
-    color: white;
-    padding: 14px 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-}
-
-
- a:hover, a:active {
-    background-color: #1a6cef;
-}
-.itemView
-{
-	
--webkit-transition: all 2s ease;
- -moz-transition: all 2s ease;
- -ms-transition: all 2s ease;
- transition: all 2s ease;
-	float:left;
-	padding :15px;
-	color: #89ace5;
-	margin :10px 10px 10px 10px;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-.itemView img:hover
-{
-	transform: scale(1.1); 
-}
-.itemView :hover{
-	font-weight:bold;
-	color: #4786ed;
-	
-}
-#title{
-
-		font-family: 'Love Ya Like A Sister', cursive;
-		font-size	:30px;
-}
-
 
 body{
 		padding:0px 100px 0px 100px;
@@ -76,34 +35,26 @@ body{
 </style>
 </head>
 <body>
+	
 	<table style="width:100%" >	 
 	<tr>
 	<td rowspan="2"><div class="itemView">
 	
- 	  <img src="Image/<%=itemId%>.jpeg" alt="Image/<%=itemId%>.jpeg" style="width:320px;height:450px;">
+ 	  <img src="Image/{{item.id}}.jpg" alt="Image/{{item.id}}.jpg" style="width:320px;height:450px;">
  	  </div>
  	  </td>
- 	  <td><p id="itemName"><%=itemName %></p>
- 	  	<samp style="font-weight:bold; font-size:30px;">Description:</samp><p id="itemDescription"><%=itemDescription %></p>
- 	  	<p id="price">&#x20b9;<%=price %></p>
+ 	  <td><p id="itemName">{{item.itemName}}</p>
+ 	  	<samp style="font-weight:bold; font-size:30px;">Description:</samp><p id="itemDescription">{{item.itemDescription}}</p>
+ 	  	<p id="price">&#x20b9;{{item.unitPrice}}</p>
  	  </td>
  	  </tr>
  	  <tr>
- 	  		<td><p><a href="/ShoppingCart/UtilUpdateForm?itemId=<%=itemId %>">Update Item</a></p></td>
- 	  		<td><p style="float:right;"><a href="/ShoppingCart/RemoveServlet?itemId=<%=itemId %>" class="confirmation">Remove Item</a></p></td>
+ 	  		<td><p><a href="#!addcart">AddCart</a></p></td>
+ 	  		<td><p style="float:right;"><a href="#!buynow" >Buy Now</a></p></td>
  	  </tr>
  	 
  	 </table>
  	
-
-    <script type="text/javascript">
-    var elems = document.getElementsByClassName('confirmation');
-    var confirmIt = function (e) {
-        if (!confirm('Are you sure?')) e.preventDefault();
-    };
-    for (var i = 0, l = elems.length; i < l; i++) {
-        elems[i].addEventListener('click', confirmIt, false);
-    }
-</script>
+   
 </body>
 </html>

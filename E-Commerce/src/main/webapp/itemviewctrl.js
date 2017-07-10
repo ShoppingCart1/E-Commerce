@@ -1,5 +1,9 @@
- var app= angular.module('mivimItemView',['HomeCtrl']);
+var app= angular.module('mivimItemView',[]);
  
- app.controller("itemviewctrl", function($scope,$http) {
-	 
- });
+   app.controller("ItemViewCtrl",["$scope", '$routeParams', function($scope, $routeParams) {
+	   
+	   
+	   $scope.item=$routeParams.item;
+	
+	  	  
+   }]);

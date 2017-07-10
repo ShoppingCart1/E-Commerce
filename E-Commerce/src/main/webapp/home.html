@@ -2,7 +2,71 @@
 <head>
 <style>
 
+
+@import url('https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister');
+@import url('https://fonts.googleapis.com/css?family=Averia+Libre|Love+Ya+Like+A+Sister');
+@import url('https://fonts.googleapis.com/css?family=Averia+Libre|Love+Ya+Like+A+Sister|Milonga');
+@import url('https://fonts.googleapis.com/css?family=Philosopher');
+
+
+
+.itemView
+{
+	
+-webkit-transition: all 2s ease;
+ -moz-transition: all 2s ease;
+ -ms-transition: all 2s ease;
+ transition: all 2s ease;
+	float:left;
+	padding :15px;
+	color: #89ace5;
+	margin :10px 10px 10px 10px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.itemView img:hover
+{
+	transform: scale(1.1); 
+}
+.itemView :hover{
+	font-weight:bold;
+	color: #4786ed;
+	
+}
+#title{
+
+		font-family: 'Love Ya Like A Sister', cursive;
+		font-size	:30px;
+}
+
+
+
+#itemName{
+			font-family: 'Love Ya Like A Sister', cursive;
+		font-family: 'Averia Libre', cursive;
+		font-size:40px;
+		font-weight:bold;
+		
+}
+#itemDescription{font-family: 'Philosopher', sans-serif;
+					font-size: 25px;
+				}
+				
+	#price{font-family: 'Philosopher', sans-serif;
+					font-size: 25px;
+					color:28px;
+	}
+
+
+
+
+
+
+
+
 #items{
+		padding:0px 100px 0px 100px;
+}
+#itemView{
 		padding:0px 100px 0px 100px;
 }
 
@@ -77,7 +141,7 @@
   </div>
 </div><br><br>
 <!-- carousel ends here -->
-<div data-ng-init="getData()" id="items">
+<div data-ng-init="getData()" id="items" ng-if="item == null">
 <div class="itemView" ng-repeat="item in items">
           <!-- <form role="form" name="regform" ng-submit="getItemDataById()">
 		<input type="hidden" ng-model="id" name="id" ng-value="{{item.id}}"/> -->
@@ -85,11 +149,34 @@
   <p style="width:304px;height:80px;padding-top:20px;"><a>{{item.itemName}}</a></p>
   <table style="width:100%">
    <tr><td><p><a href="" class="price" >&#x20B9;{{item.unitPrice}}</a></p></td>
-   <td align="right"><p><button ng-click="getItemDataById(item.id)"><a href="#!/itemview">View Item</a></button></p></td>
+   <td align="right"><p><button ng-click="getItemDataById(item.id)"><a href="#!itemview">View Item</a></button></p></td>
    </tr>
    </table>
    </form>
    </div>
 </div>
+<!-- <div ng-if="item != null" id="itemView">
+		<table style="width:100%" ng-repeat="i in item" border='1'>	 
+	<tr>
+	<td rowspan="2"><div class="itemView">
+	
+ 	  <img src="Image/{{i.id}}.jpg" alt="Image/{{i.id}}.jpg" style="width:320px;height:450px;">
+ 	  </div>
+ 	  </td>
+ 	  <td><p id="itemName">{{i.itemName}}</p>
+ 	  	<samp style="font-weight:bold; font-size:30px;">Description:</samp><p id="itemDescription">{{i.itemDescription}}</p>
+ 	  	<p id="price">&#x20b9;{{i.unitPrice}}</p>
+ 	  </td>
+ 	  </tr>
+ 	  <tr>
+ 	  		<td><p><a href="#">AddCart</a></p></td>
+ 	  		<td><p style="float:right;"><a href="#">Buy Now</a></p></td>
+ 	  </tr>
+ 	 
+ 	 </table>
+<br>
+<br>
+</div> -->
+
 </body>
 </html>
