@@ -1,4 +1,4 @@
-var app = angular.module('mivimMain', [ 'ngRoute', 'mivimNonSecured','mivimItemView','mivimRegister','mivimHome','mivimCart' ]);
+var app = angular.module('mivimMain', [ 'ngRoute', 'mivimNonSecured','mivimItemView','mivimRegister','mivimHome','mivimCart','mivimAddress']);
 
 // configure our routes
 app.config(function($routeProvider) {
@@ -33,6 +33,11 @@ app.config(function($routeProvider) {
 	.when('/cartItem', {
 		templateUrl : 'cartItem.html',
 		controller : 'CartCtrl'
+	})
+	// route for the address page
+	.when('/address', {
+		templateUrl : 'address.html',
+		controller : 'AddressCtrl'
 	})
 	
 });

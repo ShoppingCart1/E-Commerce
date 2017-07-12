@@ -1,0 +1,51 @@
+<div class="container">
+       <div class="row">
+           <div class="col-sm-3"></div>
+           <div class="col-sm-6">
+           <div class="jumbotron" style="background-color:orange"><h2>Address Page</h2></div>
+          <form role="form" name="regform" novalidate="" ng-submit="sendPost()">
+             <div class="jumbotron " >
+                    <label for="addressLine1">Address Line-1</label>
+                    <input type="text" id="mainText" name="addressLine1" ng-model="addressLine1" class="form-control" placeholder="Address Line-1" required=""/>
+                    <span style="color:red" ng-show="regform.addressLine1.$dirty && regform.addressLine1.$invalid">
+                        <span ng-show="regform.addressLine1.$error.required">Address Line-1 is required.</span>
+                    </span>
+                    <br>
+                     <label for="addressLine2">Address Line-2</label>
+                    <input type="text" id="mainText" name="addressLine2" ng-model="addressLine2" class="form-control" placeholder="Address Line-2"/>
+                    <br>
+                    <label for="state">State</label>
+                    <input type="text" id="mainText" name="state" ng-model="state" class="form-control" placeholder="State" required=""/>
+                    <span style="color:red" ng-show="regform.state.$dirty && regform.state.$invalid">
+                        <span ng-show="regform.state.$error.required">State is required.</span>
+                    </span>
+                    <br>
+                     <label for="city">City</label>
+                    <input type="text" id="mainText" name="city" ng-model="city" class="form-control" placeholder="City" required=""/>
+                    <span style="color:red" ng-show="regform.city.$dirty && regform.city.$invalid">
+                        <span ng-show="regform.city.$error.required">City is required.</span>
+                    </span>
+                    <br>
+                   <label for="pincode">Pincode</label>
+                    <input type="text" id="mainText" name="pincode" ng-model="pincode" class="form-control" placeholder="Pincode" required=""/>
+                    <span style="color:red" ng-show="regform.pincode.$dirty && regform.pincode.$invalid">
+                        <span ng-show="regform.pincode.$error.required">Pincode is required.</span>
+                    </span>
+                    <br>
+                   
+                   
+              </div>
+             
+               <div>
+                    <span ng-show="ermsg" style="color:red;">{{errormessage}}</span>
+                    <button type="submit" class="btn btn-lg btn-primary btn-block" ng-disabled="regform.$invalid" >Sign In</button>
+               </div>
+         
+        </form>
+      </div>
+    
+     <div class="col-sm-3"></div>
+            
+     </div>
+   </div>  
+  
