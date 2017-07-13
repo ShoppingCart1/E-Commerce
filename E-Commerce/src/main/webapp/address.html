@@ -1,3 +1,4 @@
+
 <div class="container">
        <div class="row">
            <div class="col-sm-3"></div>
@@ -15,16 +16,12 @@
                     <input type="text" id="mainText" name="addressLine2" ng-model="addressLine2" class="form-control" placeholder="Address Line-2"/>
                     <br>
                     <label for="state">State</label>
-                    <input type="text" id="mainText" name="state" ng-model="state" class="form-control" placeholder="State" required=""/>
-                    <span style="color:red" ng-show="regform.state.$dirty && regform.state.$invalid">
-                        <span ng-show="regform.state.$error.required">State is required.</span>
-                    </span>
+                     <select ng-model="state" ng-change="getCities()" ng-options="x.state for x in myData | unique: 'state'">
+                     </select>
                     <br>
                      <label for="city">City</label>
-                    <input type="text" id="mainText" name="city" ng-model="city" class="form-control" placeholder="City" required=""/>
-                    <span style="color:red" ng-show="regform.city.$dirty && regform.city.$invalid">
-                        <span ng-show="regform.city.$error.required">City is required.</span>
-                    </span>
+                     <select ng-model="city" ng-options="x.name for x in myData | filter : selectedState ">
+                     </select>
                     <br>
                    <label for="pincode">Pincode</label>
                     <input type="text" id="mainText" name="pincode" ng-model="pincode" class="form-control" placeholder="Pincode" required=""/>
@@ -48,4 +45,5 @@
             
      </div>
    </div>  
+   
   
