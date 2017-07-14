@@ -4,7 +4,7 @@
            <div class="col-sm-3"></div>
            <div class="col-sm-6">
            <div class="jumbotron" style="background-color:orange"><h2>Address Page</h2></div>
-          <form role="form" name="regform" novalidate="" ng-submit="sendPost()">
+          <form role="form" name="regform" novalidate="">
              <div class="jumbotron " >
                     <label for="addressLine1">Address Line-1</label>
                     <input type="text" id="mainText" name="addressLine1" ng-model="addressLine1" class="form-control" placeholder="Address Line-1" required=""/>
@@ -24,9 +24,11 @@
                      </select>
                     <br>
                    <label for="pincode">Pincode</label>
-                    <input type="text" id="mainText" name="pincode" ng-model="pincode" class="form-control" placeholder="Pincode" required=""/>
+                    <input type="text" id="mainText" name="pincode" ng-model="pincode" class="form-control" placeholder="Pincode" required="" ng-minlength='6' ng-maxlength='6'/>
                     <span style="color:red" ng-show="regform.pincode.$dirty && regform.pincode.$invalid">
                         <span ng-show="regform.pincode.$error.required">Pincode is required.</span>
+                        <span ng-show="regform.pincode.$error.minlength">Pincode must be of 6 digits</span>
+                        <span ng-show="regform.pincode.$error.maxlength">Pincode must be of 6 digits</span>
                     </span>
                     <br>
                    
@@ -35,7 +37,7 @@
              
                <div>
                     <span ng-show="ermsg" style="color:red;">{{errormessage}}</span>
-                    <button type="submit" class="btn btn-lg btn-primary btn-block" ng-disabled="regform.$invalid" >Sign In</button>
+                    <button type="submit" class="btn btn-lg btn-primary btn-block" ng-disabled="regform.$invalid" ng-click="addressSubmit(item)" >Submit</button>
                </div>
          
         </form>

@@ -16,19 +16,19 @@
 <!-- 									<c:set var="count" value="${count + 1}" scope="page" /> -->
 									<td><img src="Image/{{item.id}}.jpg"
 										alt="Image/Image/{{item.id}}.jpg" width="100px"
-										height="100px" />
+										height="100px" /><input type="hidden" ng-model="item.itemId" ng-init="itemId=item.id"/></td>
 									<td>{{item.itemName}}</td>
 									<td>{{item.unitPrice}}</td>
 									<td><input type="number" name="quantity" min="1"
-										max="100" ng-init="quantity=1"
-										ng-model="quantity" required></td>
-									<td>{{quantity*item.unitPrice}}</td>
+										max="100" ng-init="item.quantity=1"
+										ng-model="item.quantity" required></td>
+									<td>{{item.quantity*item.unitPrice}}</td>
 								<tr>
 						</tbody>
 						
 						<tfoot>
 							<tr>
-								<td id="continue" style="background-color:red;"><a href="#!/address">Buy Now</a></td>
+								<td id="continue" style="background-color:red;"><button ng-click="buy(item)">Buy Now</button></td>
 								<td id="continueShopping" style="background-color:red;"><a href="#!/home">ContinueShopping</a></td>
 							</tr>
 						</tfoot>

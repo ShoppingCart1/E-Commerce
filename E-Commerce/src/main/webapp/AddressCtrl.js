@@ -39,13 +39,42 @@ app.filter('unique', function () {
 	  };
 	});
  
-   app.controller('AddressCtrl',["$scope","$http",function($scope,$http) {
+   app.controller('AddressCtrl',["$scope","$http","$routeParams",function($scope,$http,$routeParams) {
+	   
+	   $scope.item=$routeParams.item;
 	   
 	   $http.get("cities.json").then(function (response) {
 		      $scope.myData = response.data.records;
 		      $scope.myData1 = response.data.records;
 		
 		  });
+	   $scope.addressSubmit= function(item) {
+			  
+			  var dto = { addressLine1: $scope.addressLine1, addressLine2:$scope.addressLine2,city:$scope.city.name,state:$scope.state.state, pincode: $scope.pincode }; 
+			  var obj={listItems: item, address: dto};
+			  var req = {
+	    			   method: 'POST',
+	    			   url: 'E-Commerce/saveAddress',
+	    			   data:{
+	    				   
+	    			   },headers: {
+	    			     'Content-Type': 'application/json'
+	    			   }, 
+	    			   params: obj
+	    			  }
+			  $http(req).then(function(response) {
+		            console.log(response.data);
+		            $scope.message = response.data;
+		            alert("Address is saved");
+		            $location.path("/payment")
+		        }, function(response) {
+		            //fail case
+		            console.log(response);
+		            $scope.message = response;
+		        });
+		 
+		    };
+	   
 	   $scope.getCities= function() {
 		   var obj= $scope.state;
 	    	  $scope.selectedState= obj.state;

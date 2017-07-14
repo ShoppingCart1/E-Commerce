@@ -39,6 +39,12 @@ app.config(function($routeProvider) {
 		templateUrl : 'address.html',
 		controller : 'AddressCtrl'
 	})
+	// route for the payment page
+	.when('/payment', {
+		templateUrl : 'payment.html',
+		controller : 'PaymentCtrl'
+	})
+	
 	
 });
 
