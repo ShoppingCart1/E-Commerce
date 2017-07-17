@@ -46,4 +46,29 @@ public class AddCartController {
 		
 	}
 	
+//	@RequestMapping(value = "/removecart", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
+//	public @ResponseBody Set<AddCartDto> getRemoveCartData(HttpServletRequest request,AddCartDto dto)
+//	{
+//		
+//		HttpSession session = request.getSession();
+//		Set<AddCartDto> removeCartDtos = null;
+//
+//		removeCartDtos = (Set<AddCartDto>) session.getAttribute("addcart");
+//		
+//
+//		AddCartDto cartDto = new AddCartDto();
+//		cartDto.setId(dto.getId());
+//		cartDto.setItemName(dto.getItemName());
+//		cartDto.setItemDescription(dto.getItemDescription());
+//		cartDto.setUnitPrice(dto.getUnitPrice());
+//		cartDto.setInventary(dto.getInventary());
+//		removeCartDtos.remove(cartDto);
+//		session.setAttribute("removecart", removeCartDtos);
+//		Set<AddCartDto> sessioncart=(Set<AddCartDto>)session.getAttribute("removecart");
+//		
+//		return sessioncart;
+//		
+//	}
+//	
+//	
 }

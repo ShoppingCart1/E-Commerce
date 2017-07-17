@@ -6,6 +6,8 @@
 								<td class="numeric"><strong>Price</strong></td>
 								<td class="numeric"><strong>Quantity</strong></td>
 								<td class="numeric"><strong>Total</strong></td>
+								<td class="numeric"><strong>Remove</strong></td>
+								
 							</tr>
 						</thead>
 
@@ -23,6 +25,7 @@
 										max="100" ng-init="item.quantity=1"
 										ng-model="item.quantity" required></td>
 									<td>{{item.quantity*item.unitPrice}}</td>
+									<td><button ng-click="remove(item)">Delete</button></td>
 								<tr>
 						</tbody>
 						

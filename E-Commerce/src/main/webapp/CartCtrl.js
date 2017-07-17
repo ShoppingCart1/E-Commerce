@@ -22,4 +22,29 @@ var app= angular.module('mivimCart',[]);
 					console.log(response);
 
 				}; 
+				$scope.remove = function(item) {
+					var dto = item;
+						var req = {
+							method : 'POST',
+							url : 'E-Commerce/removecart',
+							data : {
+
+							},
+							headers : {
+								'Content-Type' : 'application/json'
+							},
+							params : null
+
+						}
+						$http(req).then(function(response) {
+							$scope.item = response.data;
+							
+
+						}, function(response) {
+
+							console.log(response);
+
+						});
+				}
+
    }]);
