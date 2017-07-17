@@ -2,6 +2,11 @@ var app= angular.module('mivimCart',[]);
  
    app.controller("CartCtrl",["$scope",'$routeParams','$http','$location',function($scope,$routeParams,$http,$location) {
 	   
+	   if(!$routeParams.item || $routeParams.item === "[object Object]" ) {
+	    	$location.path("/home");
+	    	return;
+	    }
+	   
 	   $scope.item=$routeParams.item;
 
 	   $scope.buy = function(item) {

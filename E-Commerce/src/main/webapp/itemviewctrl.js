@@ -1,9 +1,13 @@
 var app= angular.module('mivimItemView',[]);
  
-   app.controller("ItemViewCtrl",["$scope","$http", '$routeParams','$window','$location', function($scope,$http, $routeParams,$window,$location) {
+   app.controller("ItemViewCtrl",["$scope","$http", '$routeParams','$window','$location','$rootScope',function($scope,$http, $routeParams,$window,$location,$rootScope) {
 	   
+	    if(!$routeParams.item || $routeParams.item === "[object Object]" ) {
+	    	$location.path("/home");
+	    	return;
+	    }
 	   
-	   $scope.item=$routeParams.item;
+	$scope.item=$routeParams.item;
 	   
 	   $scope.checking = function(item) {
 		  var dto=item;

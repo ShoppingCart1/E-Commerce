@@ -1,11 +1,11 @@
 var app = angular.module('mivimHome', []);
 
 app.controller("HomeCtrl", [ "$scope", "$http", '$location', '$window',
-		function($scope, $http, $location, $window) {
+		function($scope, $http, $location, $window, $localStorage, $rootScope ) {
 
 			var items = null;
 			var item = null;
-
+            var userData = null;
 			$scope.getData = function() {
 
 				var req = {
@@ -49,7 +49,9 @@ app.controller("HomeCtrl", [ "$scope", "$http", '$location', '$window',
 				}
 				$http(req).then(function(response) {
 					$scope.item = response.data;
-
+//					$localStorage.userData = response.data;
+//                    var info = $localStorage.userData;
+//                    $scope.item = response.data;
 					$location.path("/itemview").search({item:  response.data[0]});
 					if (!$scope.$$phase) {
 						$scope.$apply();
