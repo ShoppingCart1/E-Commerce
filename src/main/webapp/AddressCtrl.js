@@ -70,7 +70,7 @@ app.controller('AddressCtrl', [ "$scope", "$http", "$routeParams", "$location",
 					console.log(response.data);
 					// $scope.message = response.data;
 					$location.path("/payment").search({
-						order : response.data
+						order : response.data[0]
 					});
 					if (!$scope.$$phase) {
 						$scope.$apply();

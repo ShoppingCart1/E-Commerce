@@ -1,4 +1,4 @@
-var app = angular.module('mivimMain', [ 'ngRoute', 'mivimHome','mivimNonSecured','mivimItemView','mivimRegister','mivimCart','mivimAddress','mivimPayment']);
+var app = angular.module('mivimMain', [ 'ngRoute', 'mivimHome','mivimNonSecured','mivimItemView','mivimRegister','mivimCart','mivimAddress','mivimPayment','mivimOrderView']);
 
 // configure our routes
 app.config(function($routeProvider) {
@@ -44,6 +44,12 @@ app.config(function($routeProvider) {
 		templateUrl : 'payment.html',
 		controller : 'PaymentCtrl'
 	})
+	// route for the OrderView page
+	.when('/orderView', {
+		templateUrl : 'orderView.html',
+		controller : 'OrderViewCtrl'
+	})
+	
 	
 	
 });
