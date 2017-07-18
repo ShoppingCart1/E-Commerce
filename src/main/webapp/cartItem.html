@@ -1,0 +1,38 @@
+					<table id="res" class="table" name="orders" width="100%">
+						<thead style="background-color: #e8e8e8; font-size: 20px;">
+							<tr class="cart_menu">
+								<td style="padding-left: 20px;"><strong>Product</strong></td>
+								<td class="numeric"><strong>Name</strong></td>
+								<td class="numeric"><strong>Price</strong></td>
+								<td class="numeric"><strong>Quantity</strong></td>
+								<td class="numeric"><strong>Total</strong></td>
+							</tr>
+						</thead>
+
+						<tbody ng-repeat="item in item">
+<!-- 							<c:set var="count" value="0" scope="page" /> -->
+							     
+								<tr>
+<!-- 									<c:set var="count" value="${count + 1}" scope="page" /> -->
+									<td><img src="Image/{{item.id}}.jpg"
+										alt="Image/Image/{{item.id}}.jpg" width="100px"
+										height="100px" /><input type="hidden" ng-model="item.itemId" ng-init="itemId=item.id"/></td>
+									<td>{{item.itemName}}</td>
+									<td>{{item.unitPrice}}</td>
+									<td><input type="number" name="quantity" min="1"
+										max="100" ng-init="item.quantity=1"
+										ng-model="item.quantity" required></td>
+									<td>{{item.quantity*item.unitPrice}}</td>
+								<tr>
+						</tbody>
+						
+						<tfoot>
+							<tr>
+								<td id="continue" style="background-color:red;"><button ng-click="buy(item)">Buy Now</button></td>
+								<td id="continueShopping" style="background-color:red;"><a href="#!/home">ContinueShopping</a></td>
+							</tr>
+						</tfoot>
+						
+
+					</table>
+		
