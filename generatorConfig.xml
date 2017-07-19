@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration >
+ <classPathEntry location="/home/shruti/Downloads/mysql-connector-java-5.1.38.jar" />
+  <context id="context1" >
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/e-commerce" userId="root" password="root" />
+    <javaModelGenerator targetPackage="com.mivim.data.model" targetProject="src/main/java">
+     <property name="enableSubPackages" value="true" />
+      <property name="trimStrings" value="true" />
+    </javaModelGenerator>
+    <sqlMapGenerator targetPackage="com.mivim.data.xml" targetProject="src/main/java">
+    <property name="enableSubPackages" value="true" />
+    </sqlMapGenerator>
+    <javaClientGenerator targetPackage="com.mivim.data.dao" targetProject="src/main/java" type="XMLMAPPER">
+    <property name="enableSubPackages" value="true" />
+    </javaClientGenerator>
+
+<table tableName="address" schema="e-commerce">
+
+<property value="true" name="useActualColumnNames"/>
+
+</table>
+
+<table tableName="billingaddress" schema="e-commerce">
+
+<property value="true" name="useActualColumnNames"/>
+
+</table> 
+
+<table tableName="category" schema="e-commerce">
+
+<property value="true" name="useActualColumnNames"/>
+
+</table> 
+
+
+<table tableName="item" schema="e-commerce">
+
+<property value="true" name="useActualColumnNames"/>
+
+</table>
+
+ <table tableName="itemcategory" schema="e-commerce">
+
+<property value="true" name="useActualColumnNames"/>
+
+</table>
+
+<table tableName="orderitem" schema="e-commerce">
+
+<property value="true" name="useActualColumnNames"/>
+
+</table> 
+
+<table tableName="orders" schema="e-commerce">
+
+<property value="true" name="useActualColumnNames"/>
+
+</table>
+<table tableName="roles" schema="e-commerce">
+
+<property value="true" name="useActualColumnNames"/>
+
+</table>
+
+<table tableName="shippingaddress" schema="e-commerce">
+
+<property value="true" name="useActualColumnNames"/>
+
+</table>
+
+<table tableName="user" schema="e-commerce">
+
+<property value="true" name="useActualColumnNames"/>
+
+</table>
+
+<table tableName="userrole" schema="e-commerce">
+
+<property value="true" name="useActualColumnNames"/>
+
+</table>
+    
+
+ 
+</context>
+</generatorConfiguration>
