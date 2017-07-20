@@ -3,6 +3,9 @@ package com.mivim.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -33,17 +36,22 @@ public class UserController {
 	
 	
 	@RequestMapping(value = "/authentication", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
-	public @ResponseBody Map<String, Object> getAuthentication(UserDto dto) {
+	public @ResponseBody Map<String, Object> getAuthentication(HttpServletRequest request,UserDto dto) {
 
 		Map<String, Object> map = new HashMap<String, Object>();
-		boolean flag=userService.authentication(dto);
+		UserDto userDto=userService.authentication(dto);
+		
+		HttpSession session=request.getSession();
+		session.setAttribute("userDto", userDto);
+		
+		/*
 		if (flag) {
 			map.put("status", "200");
 			map.put("message", "Your login is Successful");
 		} else {
 			map.put("status", "400");
 			map.put("message", "Your login failed");
-		}
+		}*/
 
 		return map;
 
@@ -59,10 +67,10 @@ public class UserController {
 
 		if (userService.register(dto)) {
 			map.put("status", "200");
-			map.put("message", "Your login is Successful");
+			map.put("message", "Your Registration Successful");
 		} else {
 			map.put("status", "400");
-			map.put("message", "Your login failed");
+			map.put("message", "Your Registration failed");
 		}
 
 		return map;

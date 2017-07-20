@@ -5,7 +5,7 @@ import com.mivim.dto.UserDto;
 
 public interface UserDao {
 	
-	public int authentication(UserDto dto);
+	public UserDto authentication(UserDto dto);
 
 	public int register(RegisterUserDto dto);
 

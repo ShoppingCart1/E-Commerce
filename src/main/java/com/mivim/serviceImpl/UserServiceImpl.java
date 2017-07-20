@@ -15,36 +15,33 @@ import com.mivim.dto.UserDto;
 import com.mivim.service.UserService;
 
 @Service
-@Resource(name="userServiceImpl")
+@Resource(name = "userServiceImpl")
 public class UserServiceImpl implements UserService {
 
 	@Autowired
 	@Qualifier("userDaoImpl")
 	UserDao userDao;
-	
+
 	/*
 	 * @author SReddy
+	 * 
 	 * @see com.mivim.service.UserService#authentication(com.mivim.dto.UserDto)
+	 * 
 	 * @return boolean
+	 * 
 	 * @param UserDto object
 	 */
-	public boolean authentication(UserDto dto) {
-		boolean flag=false;
-		int val= userDao.authentication(dto);
-		if(val!=0)
-			flag=true;
-		else
-			flag=false;
-		
-		return flag;
+	public UserDto authentication(UserDto dto) {
+
+		UserDto userDto = userDao.authentication(dto);
+
+		return userDto;
 	}
 
 	@Override
 	public boolean register(RegisterUserDto dto) {
-		int status=userDao.register(dto);
+		int status = userDao.register(dto);
 		return true;
 	}
-	
-	
 
 }

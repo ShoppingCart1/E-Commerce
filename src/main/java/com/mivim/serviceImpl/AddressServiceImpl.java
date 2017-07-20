@@ -1,7 +1,9 @@
 package com.mivim.serviceImpl;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.annotation.Resource;
 
@@ -37,24 +39,17 @@ public class AddressServiceImpl implements AddressService {
 
 		boolean flag = addressDao.sendAddress(addressdto);
 		if (flag) {
-			int val=addressDao.saveShippingAddress();
-			if(val!=0)
-			{
+			int val = addressDao.saveShippingAddress();
+			if (val != 0) {
 				return true;
-			}
-			else
-			{
+			} else {
 				return false;
 			}
-		}
-		else
-		{
+		} else {
 			return false;
 		}
 
 	}
-
-	
 
 	private static List<OrderItemDto> getListItems(List<OrderItemDto> dto) {
 

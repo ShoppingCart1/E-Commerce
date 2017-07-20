@@ -5,7 +5,7 @@ import com.mivim.dto.UserDto;
 
 public interface UserService {
 	
-	public boolean authentication(UserDto dto);
+	public UserDto authentication(UserDto dto);
 	public boolean register(RegisterUserDto dto);
 
 }
