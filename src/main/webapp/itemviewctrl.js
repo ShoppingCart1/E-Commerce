@@ -1,6 +1,6 @@
 var app= angular.module('mivimItemView',[]);
  
-   app.controller("ItemViewCtrl",["$scope","$http", '$routeParams','$window','$location', function($scope,$http, $routeParams,$window,$location) {
+   app.controller("ItemViewCtrl",["$scope","$http", '$routeParams','$window','$location','$rootScope', function($scope,$http, $routeParams,$window,$location,$rootScope) {
 	   
 	   
 	   $scope.item=$routeParams.item;
@@ -22,6 +22,9 @@ var app= angular.module('mivimItemView',[]);
 			}
 			$http(req).then(function(response) {
 				$scope.items = response.data;
+				console.log($($scope.items).length);
+				var cnt= $($scope.items).length;
+				$rootScope.itemCart={count: cnt};
 				$location.path("/cartItem").search({item:  response.data});
 				if (!$scope.$$phase) {
 					$scope.$apply();
