@@ -1,4 +1,4 @@
-var app = angular.module('mivimMain', [ 'ngRoute', 'mivimHome','mivimNonSecured','mivimItemView','mivimRegister','mivimCart','mivimAddress','mivimPayment','mivimOrderView']);
+var app = angular.module('mivimMain', [ 'ngRoute', 'mivimNonSecured','mivimItemView','mivimRegister','mivimHome','mivimCart','mivimAddress','mivimPayment','mivimOrderView']);
 
 // configure our routes
 app.config(function($routeProvider) {

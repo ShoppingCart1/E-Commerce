@@ -29,19 +29,20 @@ public class UserServiceImpl implements UserService {
 	 * @param UserDto object
 	 */
 	public boolean authentication(UserDto dto) {
-	
+		boolean flag=false;
 		int val= userDao.authentication(dto);
+		if(val!=0)
+			flag=true;
+		else
+			flag=false;
 		
-		return true;
+		return flag;
 	}
 
 	@Override
 	public boolean register(RegisterUserDto dto) {
 		int status=userDao.register(dto);
-		if(status!=0)
 		return true;
-		else
-			return false;
 	}
 	
 	

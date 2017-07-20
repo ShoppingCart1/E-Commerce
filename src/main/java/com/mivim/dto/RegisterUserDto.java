@@ -1,6 +1,7 @@
 package com.mivim.dto;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 public class RegisterUserDto implements Serializable{
 	
@@ -13,7 +14,23 @@ public class RegisterUserDto implements Serializable{
 	private String email;
 	private String password;
 	private String mobileNumber;
+	private int status;
+	private Date updated_date;
 	
+	
+	
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
+	}
+	public Date getUpdated_date() {
+		return updated_date;
+	}
+	public void setUpdated_date(Date updated_date) {
+		this.updated_date = updated_date;
+	}
 	public String getId() {
 		return id;
 	}

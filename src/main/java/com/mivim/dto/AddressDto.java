@@ -8,12 +8,21 @@ public class AddressDto implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private String id;
 	private String addressLine1;
 	private String addressLine2;
 	private String city;
 	private String state;
 	private String pincode;
 	
+	
+	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public String getAddressLine1() {
 		return addressLine1;
 	}

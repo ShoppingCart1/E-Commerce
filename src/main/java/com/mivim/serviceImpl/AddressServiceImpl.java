@@ -5,8 +5,11 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.mivim.dao.AddressDao;
+import com.mivim.daoImpl.Utils;
 import com.mivim.dto.AddressCartDto;
 import com.mivim.dto.AddressDto;
 import com.mivim.dto.OrderItemDto;
@@ -18,6 +21,12 @@ import com.mivim.service.AddressService;
 public class AddressServiceImpl implements AddressService {
 
 	
+	private static String orderId=Utils.getUUId();
+	
+	
+	@Autowired
+	private static AddressDao addressDao;
+	
 	/*
 	 * (non-Javadoc)
 	 * @see com.mivim.service.AddressService#saveAdress(com.mivim.dto.AddressDto)
@@ -28,24 +37,19 @@ public class AddressServiceImpl implements AddressService {
 		
 		List<OrderItemDto> orderItemDto=dto.getOrderItemDto();
 		
-		boolean flag=sendAddress(addressdto);
+		boolean flag=addressDao.sendAddress(addressdto);
+		if(flag)
+		{
+			addressDao.saveShippingAddress();
+		}
 		
 		List<OrdersDto> list=getOrder(orderItemDto);
 		
 		return list;
 	}
-	public static String getShippingAddress() {
 	
-		
-		return "123";
-		
-	}
 	
-	public static boolean sendAddress(AddressDto dto)
-	{
-		return true;
-		
-	}
+	
 	
 	public static List<OrdersDto> getOrder(List<OrderItemDto> dto)
 	{
@@ -53,14 +57,15 @@ public class AddressServiceImpl implements AddressService {
 		
 		OrdersDto ordersDto=new OrdersDto();
 		
-		String orderId=getOrderId();
+		
 		
 		String subTotal = getSubTotal(dto);
 		
-		String shippingAddressId = getShippingAddress();
+		String shippingAddressId = addressDao.getShippingAddressId();
 		
 		List<OrderItemDto> listItems=getListItems(dto);
-		
+		ordersDto.setId(orderId);
+		ordersDto.setUserId("1235");
 		ordersDto.setSubTotal(subTotal);
 		ordersDto.setGrandTotal(subTotal);
 		ordersDto.setShippingAddressId(shippingAddressId);
@@ -84,22 +89,20 @@ public class AddressServiceImpl implements AddressService {
 			Long totalPrice=(long) (Integer.parseInt(orderItemDto.getUnitPrice())*Integer.parseInt(orderItemDto.getQuantity()));
 			String itemId= orderItemDto.getId();
 			String quantity =orderItemDto.getQuantity();
-			String orderId	= getOrderId();
 			
+			orderDto.setOrderDate(Utils.getDate().toString());
 			orderDto.setItemId(itemId);
 			orderDto.setQuantity(quantity);
 			orderDto.setOrderId(orderId);
 			orderDto.setTotalPrice(totalPrice.toString());
+			
 			
 			list.add(orderDto);		
 		}
 		
 		return list;
 	}
-	private static String getOrderId() {
-		// TODO Auto-generated method stub
-		return "O123";
-	}
+	
 	private static String getSubTotal(List<OrderItemDto> dto) {
 		long obj = 0;
 		for(OrderItemDto orderItemDto:dto)

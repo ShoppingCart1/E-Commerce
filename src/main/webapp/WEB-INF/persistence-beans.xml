@@ -38,6 +38,23 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 	<bean id="myBatisMapperScanner" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
        <property name="basePackage" value="com.mivim.data.dao"/>
     </bean>
+    
+    <bean id="userExample" class="com.mivim.data.model.UserExample"/>
+    <bean id="user" class="com.mivim.data.model.User"/>
+    <bean id="userKey" class="com.mivim.data.model.UserKey"/>
+   	<bean id="address" class="com.mivim.data.model.Address"/>
+   	<bean id="addressExample" class="com.mivim.data.model.AddressExample"/>
+   	<bean id="category" class="com.mivim.data.model.Category"/>
+   	<bean id="categoryExample" class="com.mivim.data.model.CategoryExample"/>
+   	<bean id="item" class="com.mivim.data.model.Item"/>
+   	<bean id="itemExample" class="com.mivim.data.model.ItemExample"/>
+   	<bean id="orderitem" class="com.mivim.data.model.Orderitem"/>
+   	<bean id="orderitemExample" class="com.mivim.data.model.OrderitemExample"/>
+   	<bean id="orders" class="com.mivim.data.model.Orders"/>
+   	<bean id="ordersExample" class="com.mivim.data.model.OrdersExample"/>
+    <bean id="shippingaddress" class="com.mivim.data.model.Shippingaddress"/>
+    <bean id="shippingaddressExample" class="com.mivim.data.model.ShippingaddressExample"/>
+    
 	<context:component-scan base-package="com.mivim.*" />
 
 </beans>
