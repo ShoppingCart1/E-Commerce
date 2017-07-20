@@ -26,8 +26,14 @@ public class AddressController {
 
 	@RequestMapping(value = "/address", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
 	public @ResponseBody List<OrdersDto> sendAddress(@RequestBody AddressCartDto addressCartDto) {
-		List<OrdersDto> list = addressService.saveAddress(addressCartDto);
+		AddressDto addressdto = addressCartDto.getAddressDto();
+		List<OrderItemDto> orderItemDto = addressCartDto.getOrderItemDto();
+		boolean flag = addressService.saveAddress(addressdto);
+
+		List<OrdersDto> list = addressService.getData(orderItemDto);
+
 		return list;
+
 	}
 
 }

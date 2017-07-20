@@ -21,9 +21,7 @@ import com.mivim.dto.AddressDto;
 @Resource(name = "addressDaoImpl")
 public class AddressDaoImpl implements AddressDao {
 
-	private static String id = Utils.getUUId();
-	private static int status = Utils.getStatusCode();
-	private static Date date = Utils.getDate();
+
 
 	@Autowired
 	private AddressMapper addressMapper;
@@ -43,6 +41,13 @@ public class AddressDaoImpl implements AddressDao {
 	@Qualifier("shippingaddressExample")
 	ShippingaddressExample shippingaddressExample;
 
+	
+	private static String id = Utils.getUUId();
+	private static int status = Utils.getStatusCode();
+	private static Date date = Utils.getDate();
+	
+	
+	
 	@Override
 	public boolean sendAddress(AddressDto addressdto) {
 		address.setId(id);
@@ -77,8 +82,9 @@ public class AddressDaoImpl implements AddressDao {
 		shippingaddressExample.or().andAddressIdEqualTo(id);
 		List<Shippingaddress> list=shippingaddressMapper.selectByExample(shippingaddressExample);
 		String shippingAddressId = null;
-		for(Shippingaddress shippingaddress:list)
-			shippingAddressId=shippingaddress.getId();
+		for(Shippingaddress shippingaddress:list){
+			shippingAddressId=shippingaddress.getId();}
+		shippingaddressExample.clear();
 		return shippingAddressId;
 	}
 

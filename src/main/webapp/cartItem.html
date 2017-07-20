@@ -6,15 +6,13 @@
 								<td class="numeric"><strong>Price</strong></td>
 								<td class="numeric"><strong>Quantity</strong></td>
 								<td class="numeric"><strong>Total</strong></td>
+								<td class="numeric"></td>
 							</tr>
 						</thead>
 
 						<tbody ng-repeat="item in item">
-<!-- 							<c:set var="count" value="0" scope="page" /> -->
-							     
-								<tr>
-<!-- 									<c:set var="count" value="${count + 1}" scope="page" /> -->
-									<td><img src="Image/{{item.id}}.jpeg"
+                               <tr>
+                                    <td><img src="Image/{{item.id}}.jpeg"
 										alt="Image/Image/{{item.id}}.jpeg" width="100px"
 										height="100px" /><input type="hidden" ng-model="item.itemId" ng-init="itemId=item.id"/></td>
 									<td>{{item.itemName}}</td>
@@ -23,6 +21,7 @@
 										max="100" ng-init="item.quantity=1"
 										ng-model="item.quantity" required></td>
 									<td>{{item.quantity*item.unitPrice}}</td>
+									<td><button ng-click="removeItem(item)">Remove</button></td>
 								<tr>
 						</tbody>
 						
