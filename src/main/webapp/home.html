@@ -1,5 +1,8 @@
 <html>
 <head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
 
 
@@ -56,7 +59,8 @@
 					color:28px;
 	}
 
-
+.info {background-color: #2196F3;} 
+.info:hover {background: #0b7dda;}
 
 
 
@@ -149,7 +153,7 @@
   <p style="width:304px;height:80px;padding-top:20px;"><a>{{item.itemName}}</a></p>
   <table style="width:100%">
    <tr><td><p><a href="" class="price" >&#x20B9;{{item.unitPrice}}</a></p></td>
-   <td align="right"><p><button ng-click="getItemDataById(item.id)">View Item</button></p></td>
+   <td align="right"><p><button ng-click="getItemDataById(item.id)" class="btn btn-info">View Item</button></p></td>
    </tr>
    </table>
    </form>

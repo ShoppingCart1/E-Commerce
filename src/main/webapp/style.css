@@ -12,7 +12,7 @@ body{
     
 }
 .cart{
-margin-top: 10px;
+margin-top: 0 px;
 }@CHARSET "ISO-8859-1";
 
 .brand {
@@ -35,46 +35,9 @@ margin-top: 10px;
 @import url('https://fonts.googleapis.com/css?family=Averia+Libre|Love+Ya+Like+A+Sister');
 @import url('https://fonts.googleapis.com/css?family=Averia+Libre|Love+Ya+Like+A+Sister|Milonga');
 
- .itemView a:link, a:visited {
-    background-color: #568be2;
-    color: white;
-    padding: 14px 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    border-radius: 8px;
-}
+ 
 
 
- .itemView a:hover, a:active {
-    background-color: #1970ff;
-    color: white;
-}
-a{
-	text-decoration: none;
-}
-.itemView
-{
-	
--webkit-transition: all 2s ease;
- -moz-transition: all 2s ease;
- -ms-transition: all 2s ease;
- transition: all 2s ease;
-	float:left;
-	padding :15px;
-	color: #89ace5;
-	margin :10px 10px 10px 10px;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-.itemView img:hover
-{
-	transform: scale(1.1); 
-}
-.itemView :hover{
-	font-weight:bold;
-	color: #4786ed;
-	
-}
 #title{
 
 		font-family: 'Love Ya Like A Sister', cursive;
@@ -94,8 +57,4 @@ a{
 		font-size: 20px;
 		padding: 0px 20px 0px 0px;
 
-}
-
-.itemView {
-		
 }

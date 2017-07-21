@@ -5,6 +5,9 @@
 <title>ItemView</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
 
 @import url('https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister');
@@ -49,8 +52,9 @@ body{
  	  </td>
  	  </tr>
  	  <tr>
- 	  		<td><p><button ng-click="checking(item)">AddCart</button></p></td>
- 	  		<td><p style="float:right;"><a href="#!buynow" >Buy Now</a></p></td>
+ 	  		<td><p><button ng-click="checking(item)" type="button" class="btn btn-info btn-lg"> <span class="glyphicon glyphicon-shopping-cart"></span>AddCart</button></p></td>
+ 	  		<td><p style="float:right;"><a href="#!buynow"><button type="button" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-heart"></span>Buy Now</button></a></p></td>
  	  </tr>
  	 
  	 </table>
