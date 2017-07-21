@@ -18,6 +18,9 @@
 			  $http(req).then(function(response) {
 		            console.log(response.data);
 		            $scope.message = response.data;
+		            //alert("");
+		            //$location.path("/login");
+					
 		        }, function(response) {
 		            //fail case
 		            console.log(response);

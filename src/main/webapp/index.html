@@ -31,7 +31,7 @@
 <body ng-app="mivimMain">
 <!-- HEADER AND NAVBAR -->
   <nav class="navbar navbar-inverse" ng-controller="MainCtrl">
-  <div class="container-fluid">
+  <div class="container-fluid" data-ng-init="getUserData()">
     <ul class="nav navbar-nav brand">
         <li><a href="#!/home"><img src="Image/logo-design.png" alt="logo" height="35" width="30">ShoppingCart</a></li>
         
@@ -45,8 +45,11 @@
         </button>
       </li>
         
-      <li><a href="#!/Register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="#!/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li ng-if="userData.status=='400'"><a href="#!/Register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li ng-if="userData.status=='400'"><a href="#!/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>    
+      <li ng-if="userData.status=='200'"><a href="#">{{userData.message.username}}</a></li>
+      <li ng-if="userData.status=='200'"><a href="#"><span class="glyphicon glyphicon-log-in"></span><button ng-click="doLogout()">Logout</button> </a></li>
+     
     </ul>
   </div>
 </nav>

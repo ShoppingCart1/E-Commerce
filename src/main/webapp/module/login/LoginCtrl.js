@@ -1,6 +1,6 @@
  var app= angular.module('mivimNonSecured',[]);
  
-   app.controller("LoginCtrl", function($scope,$http) {
+   app.controller("LoginCtrl", function($scope,$http,$location,$window) {
 	   $scope.sendPost = function() {
 		   var dto = { email: $scope.email, password:$scope.password };
 		   var req = {
@@ -15,6 +15,8 @@
     			  }
 	        $http(req).then(function(response) {
 	            console.log(response.data);
+	            window.location.reload();
+	            $location.path("/");
 	           
 	        }, function(response) {
 	            

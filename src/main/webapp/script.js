@@ -87,4 +87,61 @@ app.controller("MainCtrl",["$scope","$http","$rootScope","$location", function($
 			});
 
 	};
+	var userData = null;
+
+	$scope.getUserData = function() {
+
+		var req = {
+			method : 'POST',
+			url : 'E-Commerce/getUserData',
+			data : {
+
+			},
+			headers : {
+				'Content-Type' : 'application/json'
+			},
+			params : null
+
+		}
+		$http(req).then(function(response) {
+			console.log(response.data);
+			$scope.userData = response.data;
+			
+				
+
+		}, function(response) {
+
+			console.log(response);
+
+		});
+
+	};
+
+	$scope.doLogout = function() {
+
+		var req = {
+			method : 'POST',
+			url : 'E-Commerce/logout',
+			data : {
+
+			},
+			headers : {
+				'Content-Type' : 'application/json'
+			},
+			params : null
+
+		}
+		$http(req).then(function(response) {
+			console.log(response.data);
+			$scope.userData = response.data;
+            window.location.reload();
+            $location.path("/");
+
+		}, function(response) {
+
+			console.log(response);
+
+		});
+
+	};
 }]);
