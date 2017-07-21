@@ -49,4 +49,35 @@ var app= angular.module('mivimCart',[]);
 							});
 
 				 };
+				 
+				 $scope.getCart= function() {
+						var req = {
+								method : 'POST',
+								url : 'E-Commerce/getCart',
+								data : {
+
+								},
+								headers : {
+									'Content-Type' : 'application/json'
+								},
+								params : null
+
+							}
+							$http(req).then(function(response) {
+								$scope.items = response.data;
+								console.log($($scope.items).length);
+								var cnt= $($scope.items).length;
+								$rootScope.itemCart={count: cnt};
+								$location.path("/cartItem").search({item:  response.data});
+								if (!$scope.$$phase) {
+									$scope.$apply();
+								}
+
+							}, function(response) {
+
+								console.log(response);
+
+							});
+
+					};
    }]);

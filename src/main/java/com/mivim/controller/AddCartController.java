@@ -46,4 +46,11 @@ public class AddCartController {
 		
 	}
 	
+	@RequestMapping(value="/getCart", method= RequestMethod.POST, consumes = "application/json", produces = "application/json")
+	public @ResponseBody Set<AddCartDto> getCartData(HttpServletRequest request,AddCartDto dto) {
+		
+		HttpSession session = request.getSession();
+		Set<AddCartDto> sessioncart=(Set<AddCartDto>)session.getAttribute("addcart");
+		return sessioncart;
+	}
 }
