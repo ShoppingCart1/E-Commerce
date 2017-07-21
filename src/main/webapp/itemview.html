@@ -39,7 +39,7 @@ body{
 </head>
 <body>
 	
-	<table style="width:100%" >	 
+	<table style="width:100%" data-ng-init="getUserData()">	 
 	<tr>
 	<td rowspan="2"><div class="itemView">
 	
@@ -52,9 +52,9 @@ body{
  	  </td>
  	  </tr>
  	  <tr>
- 	  		<td><p><button ng-click="checking(item)" type="button" class="btn btn-info btn-lg"> <span class="glyphicon glyphicon-shopping-cart"></span>AddCart</button></p></td>
- 	  		<td><p style="float:right;"><a href="#!buynow"><button type="button" class="btn btn-default btn-sm">
-          <span class="glyphicon glyphicon-heart"></span>Buy Now</button></a></p></td>
+ 	  		<td><p ng-if="userData.status=='200'"><button ng-click="checking(item)" type="button" class="btn btn-info btn-lg"> <span class="glyphicon glyphicon-shopping-cart"></span>AddCart</button></p></td>
+ 	  		<td><p ng-if="userData.status=='400'"><a href="#!/login"><button type="button" class="btn btn-info btn-lg"> <span class="glyphicon glyphicon-shopping-cart"></span>AddCart</button></a></p></td>
+ 	  		
  	  </tr>
  	 
  	 </table>

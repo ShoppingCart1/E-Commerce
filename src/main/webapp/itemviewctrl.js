@@ -37,6 +37,35 @@ var app= angular.module('mivimItemView',[]);
 			});
 
 		};
+		var userData = null;
+
+		$scope.getUserData = function() {
+
+			var req = {
+				method : 'POST',
+				url : 'E-Commerce/getUserData',
+				data : {
+
+				},
+				headers : {
+					'Content-Type' : 'application/json'
+				},
+				params : null
+
+			}
+			$http(req).then(function(response) {
+				console.log(response.data);
+				$scope.userData = response.data;
+				
+					
+
+			}, function(response) {
+
+				console.log(response);
+
+			});
+
+		};
 
 	  	  
    }]);
