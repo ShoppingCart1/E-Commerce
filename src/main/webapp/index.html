@@ -40,15 +40,15 @@
        <ul class="nav navbar-nav navbar-right">
         
       <li class="cart">
-       <button type="button" class="btn btn-default btn-sm" ng-click="getCart()">
+       <button type="button" class="btn btn-default btn-sm" ng-click="getCart()" style="margin-top:10px;">
           <span class="glyphicon glyphicon-shopping-cart"></span>Cart {{itemCart.count}}
         </button>
       </li>
         
       <li ng-if="userData.status=='400'"><a href="#!/Register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       <li ng-if="userData.status=='400'"><a href="#!/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>    
-      <li ng-if="userData.status=='200'"><a href="#">{{userData.message.username}}</a></li>
-      <li ng-if="userData.status=='200'"><a href="#"><span class="glyphicon glyphicon-log-in"></span><button ng-click="doLogout()">Logout</button> </a></li>
+      <li ng-if="userData.status=='200'"><a href="#" style="color:red;">{{userData.message.username}}</a></li>
+      <li ng-if="userData.status=='200'"><a href="#"><button class="btn btn-success" ng-click="doLogout()">Logout</button> </a></li>
      
     </ul>
   </div>

@@ -11,10 +11,9 @@ body{
     margin-right: 10px;
     
 }
-.cart{
-margin-top: 10 px;
-}@CHARSET "ISO-8859-1";
-
+.cart {
+	margin-top: 10px;
+}
 .brand {
 	font-family: 'Josefin Slab', serif;
  font-size: 37px;
