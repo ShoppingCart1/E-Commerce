@@ -29,14 +29,14 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="typeAliasesPackage" value="com.mivim.data.model" />
-		<property name="mapperLocations" value="classpath*:com/mivim/data/xml/*.xml" />
+		<property name="mapperLocations" value="classpath*:com/mivim/**/xml/*.xml" />
 	</bean>
 
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg index="0" ref="sqlSessionFactory" />
 	</bean>
 	<bean id="myBatisMapperScanner" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-       <property name="basePackage" value="com.mivim.data.dao"/>
+       <property name="basePackage" value="com.mivim.data.*"/>
     </bean>
     
     <bean id="userExample" class="com.mivim.data.model.UserExample"/>
@@ -54,6 +54,8 @@ http://www.springframework.org/schema/context/spring-context.xsd">
    	<bean id="ordersExample" class="com.mivim.data.model.OrdersExample"/>
     <bean id="shippingaddress" class="com.mivim.data.model.Shippingaddress"/>
     <bean id="shippingaddressExample" class="com.mivim.data.model.ShippingaddressExample"/>
+    <bean id="orderView" class="com.mivim.data.custom.model.OrderView"/>
+   
     
 	<context:component-scan base-package="com.mivim.*" />
 

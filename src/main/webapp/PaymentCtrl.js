@@ -22,10 +22,7 @@ app.controller('PaymentCtrl',["$scope","$routeParams","$http","$location", funct
 
 			$http(req).then(function(response) {
 				console.log(response.data);
-				$location.path("/orderView").search({order:  response.data});
-				if (!$scope.$$phase) {
-					$scope.$apply();
-				}
+				$location.path("/orderView");
 			}, function(response) {
 				// fail case
 				console.log(response);
