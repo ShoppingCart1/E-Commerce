@@ -1,6 +1,6 @@
  var app= angular.module('mivimRegister',[]);
  
-   app.controller("RegisterCtrl", function($scope, $http,$location) {
+   app.controller("RegisterCtrl", function($scope, $http,$location,$window) {
 		  $scope.Register= function() {
 			  
 			  var dto = { email: $scope.email, password:$scope.password,username:$scope.username,mobileNumber:$scope.mobile }; 
@@ -18,7 +18,7 @@
 			  $http(req).then(function(response) {
 		            console.log(response.data);
 		            $scope.message = response.data;
-		           alert("Your Registration Successful");
+		            $window.alert("Your Registration Successful");
 		            $location.path("/login");
 					
 		        }, function(response) {

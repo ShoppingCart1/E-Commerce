@@ -45,7 +45,7 @@ public class UserController {
 		HttpSession session = request.getSession();
 		session.setAttribute("userDto", userDto);
 		UserDto user = (UserDto) session.getAttribute("userDto");
-		if (user != null) {
+		if (user.getId() != null) {
 			map.put("status", "200");
 			map.put("message", user);
 		} else {

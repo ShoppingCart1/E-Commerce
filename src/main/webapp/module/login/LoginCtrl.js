@@ -1,6 +1,6 @@
- var app= angular.module('mivimNonSecured',[]);
+var app= angular.module('mivimNonSecured',[]);
  
-   app.controller("LoginCtrl", function($scope,$http,$location) {
+   app.controller("LoginCtrl", function($scope,$http,$location,$window) {
 	   $scope.sendPost = function() {
 		   var dto = { email: $scope.email, password:$scope.password };
 		   var req = {
@@ -14,9 +14,22 @@
     			   params: dto
     			  }
 	        $http(req).then(function(response) {
-	            console.log(response.data);
-	            window.location.reload();
-	            $location.path("/");
+				if(response.data.status==="200"){
+					console.log(response.data);
+		            console.log(response.data.status);
+					window.location.reload();
+					$window.alert("Hello User");
+					$location.path("/");
+				}
+				else {
+					
+					
+					var errorMessage="Username or password error";
+					$scope.errorMessage = errorMessage;
+					$window.alert("Wrong email or password");
+					$location.path("/login");
+
+				}
 	           
 	        }, function(response) {
 	            
