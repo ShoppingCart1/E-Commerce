@@ -36,7 +36,7 @@ SELECT A.pincode,A.state,
  WHERE O.ORDERID=OS.ID
 and A.id=OS.shippingaddressid
 and O.itemId=i.id
-and u.id=OS.userid and u.id=1235;
+and u.id=OS.userid and u.id=#{userId};
 		
 	</select>
 	<!-- <select id="selectByPrimaryKey" parameterType="java.lang.String"

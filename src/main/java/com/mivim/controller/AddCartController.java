@@ -10,27 +10,20 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.mivim.dto.AddCartDto;
+import com.mivim.dto.UserDto;
 
 @Controller
 public class AddCartController {
 
-	
-
 	@RequestMapping(value = "/addcart", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
-	public @ResponseBody Set<AddCartDto> getAddCartData(HttpServletRequest request,AddCartDto dto)
-	{
-		
-		
-		
-		
-		
+	public @ResponseBody Set<AddCartDto> getAddCartData(HttpServletRequest request, AddCartDto dto) {
+
 		HttpSession session = request.getSession();
-		
-		session.getAttribute("userDto");
-		
+
+		UserDto userDto = (UserDto) session.getAttribute("userDto");
+		String userId = userDto.getId();
 		Set<AddCartDto> addCartDtos = null;
 
 		addCartDtos = (Set<AddCartDto>) session.getAttribute("cart");
@@ -46,18 +39,21 @@ public class AddCartController {
 		cartDto.setUnitPrice(dto.getUnitPrice());
 		cartDto.setInventary(dto.getInventary());
 		addCartDtos.add(cartDto);
-		session.setAttribute("addcart", addCartDtos);
-		Set<AddCartDto> sessioncart=(Set<AddCartDto>)session.getAttribute("addcart");
-		
+		session.setAttribute(userId, addCartDtos);
+		Set<AddCartDto> sessioncart = (Set<AddCartDto>) session.getAttribute(userId);
+
 		return sessioncart;
-		
+
 	}
-	@RequestMapping(value="/getCart", method= RequestMethod.POST, consumes = "application/json", produces = "application/json")
-	public @ResponseBody Set<AddCartDto> getCartData(HttpServletRequest request,AddCartDto dto) {
-		
+
+	@RequestMapping(value = "/getCart", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
+	public @ResponseBody Set<AddCartDto> getCartData(HttpServletRequest request) {
+
 		HttpSession session = request.getSession();
-		Set<AddCartDto> sessioncart=(Set<AddCartDto>)session.getAttribute("addcart");
+		UserDto userDto = (UserDto) session.getAttribute("userDto");
+		String userId = userDto.getId();
+		Set<AddCartDto> sessioncart = (Set<AddCartDto>) session.getAttribute(userId);
 		return sessioncart;
 	}
-	
+
 }

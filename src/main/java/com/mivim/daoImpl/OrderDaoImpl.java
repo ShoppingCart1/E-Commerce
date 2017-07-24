@@ -42,7 +42,7 @@ public class OrderDaoImpl implements OrderDao {
 		orders.setPaymentMode(dto.getPaymentMode());
 		orders.setShippingAddressId(dto.getShippingAddressId());
 		orders.setSubTotal(dto.getSubTotal());
-		orders.setUserId("1235");
+		orders.setUserId(dto.getUserId());
 		
 		int val=ordersMapper.insert(orders);
 		

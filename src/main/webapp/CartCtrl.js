@@ -50,7 +50,7 @@ var app= angular.module('mivimCart',[]);
 
 				 };
 				 
-				 $scope.getCart= function() {
+					$scope.getItemListRefresh= function() {
 						var req = {
 								method : 'POST',
 								url : 'E-Commerce/getCart',
@@ -64,9 +64,9 @@ var app= angular.module('mivimCart',[]);
 
 							}
 							$http(req).then(function(response) {
-								$scope.items = response.data;
-								console.log($($scope.items).length);
-								var cnt= $($scope.items).length;
+								$scope.item = response.data;
+								console.log($($scope.item).length);
+								var cnt= $($scope.item).length;
 								$rootScope.itemCart={count: cnt};
 								$location.path("/cartItem").search({item:  response.data});
 								if (!$scope.$$phase) {
@@ -80,4 +80,5 @@ var app= angular.module('mivimCart',[]);
 							});
 
 					};
+					
    }]);

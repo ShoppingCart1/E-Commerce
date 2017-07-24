@@ -41,12 +41,13 @@ public class AddressDaoImpl implements AddressDao {
 	@Qualifier("shippingaddressExample")
 	ShippingaddressExample shippingaddressExample;
 
-	private static String id = Utils.getUUId();
-	private static int status = Utils.getStatusCode();
-	private static Date date = Utils.getDate();
+	private static String id = null;
+	private int status = Utils.getStatusCode();
+	private Date date = Utils.getDate();
 
 	@Override
 	public boolean sendAddress(AddressDto addressdto) {
+		id=addressdto.getId();
 		address.setId(id);
 		address.setAddressLine1(addressdto.getAddressLine1());
 		address.setAddressLine2(addressdto.getAddressLine2());
@@ -55,7 +56,7 @@ public class AddressDaoImpl implements AddressDao {
 		address.setState(addressdto.getState());
 		address.setPincode(addressdto.getPincode());
 		address.setUpdatedDate(date);
-		address.setUserId("1235");
+		address.setUserId(addressdto.getUserId());
 
 		int status = addressMapper.insert(address);
 		if (status != 0)

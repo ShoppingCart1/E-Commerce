@@ -23,7 +23,7 @@ import com.mivim.service.AddressService;
 @Resource(name = "addressServiceImpl")
 public class AddressServiceImpl implements AddressService {
 
-	private static String orderId = Utils.getUUId();
+	private static String orderId=null;
 
 	@Autowired
 	@Qualifier("addressDaoImpl")
@@ -36,8 +36,9 @@ public class AddressServiceImpl implements AddressService {
 	 * com.mivim.service.AddressService#saveAdress(com.mivim.dto.AddressDto)
 	 */
 	public boolean saveAddress(AddressDto addressdto) {
-
+		addressdto.setId(Utils.getUUId());
 		boolean flag = addressDao.sendAddress(addressdto);
+		
 		if (flag) {
 			int val = addressDao.saveShippingAddress();
 			if (val != 0) {
@@ -53,6 +54,7 @@ public class AddressServiceImpl implements AddressService {
 
 	private static List<OrderItemDto> getListItems(List<OrderItemDto> dto) {
 
+		orderId = Utils.getUUId();
 		List<OrderItemDto> list = new ArrayList<OrderItemDto>();
 
 		for (OrderItemDto orderItemDto : dto) {
@@ -85,7 +87,7 @@ public class AddressServiceImpl implements AddressService {
 	}
 
 	@Override
-	public List<OrdersDto> getData(List<OrderItemDto> orderItemDto) {
+	public List<OrdersDto> getData(List<OrderItemDto> orderItemDto,String userId) {
 		List<OrdersDto> orders = new ArrayList<OrdersDto>();
 
 		OrdersDto ordersDto = new OrdersDto();
@@ -96,7 +98,7 @@ public class AddressServiceImpl implements AddressService {
 
 		List<OrderItemDto> listItems = getListItems(orderItemDto);
 		ordersDto.setId(orderId);
-		ordersDto.setUserId("1235");
+		ordersDto.setUserId(userId);
 		ordersDto.setSubTotal(subTotal);
 		ordersDto.setGrandTotal(subTotal);
 		ordersDto.setShippingAddressId(shippingAddressId);

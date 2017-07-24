@@ -12,7 +12,7 @@ app.controller('PaymentCtrl',["$scope","$routeParams","$http","$location", funct
 			var req = {
 				method : 'POST',
 				url : 'E-Commerce/placeOrder',
-				data : {id:order.id,subTotal:order.subTotal,grandTotal:order.grandTotal,paymentMode:order.paymentMode,shippingAddressId:order.shippingAddressId,billingAddressId:null,listItems:order.listItems},
+				data : {id:order.id,userId:order.userId,subTotal:order.subTotal,grandTotal:order.grandTotal,paymentMode:order.paymentMode,shippingAddressId:order.shippingAddressId,billingAddressId:null,listItems:order.listItems},
 				headers : {
 					'Content-Type' : 'application/json'
 				}

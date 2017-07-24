@@ -12,20 +12,23 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mivim.dto.AddCartDto;
+import com.mivim.dto.UserDto;
 
 @Controller
 public class RemoveCartController {
    
 	@RequestMapping(value="/removeCartItem",method=RequestMethod.POST,consumes = "application/json", produces = "application/json")
 	public @ResponseBody Set<AddCartDto> removeCartItem(HttpServletRequest request,AddCartDto dto) {
-		HttpSession session = request.getSession();
+		HttpSession session = request.getSession();UserDto userDto=(UserDto) session.getAttribute("userDto");
+		String userId= userDto.getId();
+		
 		Set<AddCartDto> removeCartDtos;
 
-		removeCartDtos = (Set<AddCartDto>)session.getAttribute("addcart");
+		removeCartDtos = (Set<AddCartDto>)session.getAttribute(userId);
 		removeCartDtos.remove(dto);
-		session.removeAttribute("addcart");
-		session.setAttribute("addcart", removeCartDtos);
-		Set<AddCartDto> sessioncart=(Set<AddCartDto>)session.getAttribute("addcart");
+		session.removeAttribute(userId);
+		session.setAttribute(userId, removeCartDtos);
+		Set<AddCartDto> sessioncart=(Set<AddCartDto>)session.getAttribute(userId);
 		
 		return sessioncart;
 		
